@@ -1,8 +1,5 @@
 import java.util.Scanner;
 
-// Segunda avaliacao de Programacao Imperativa - 2025.2.
-// Compilar: javac -encoding UTF-8 Prova2025_2.java
-// As classes Conta e Operacao sao usadas como registros.
 class Conta {
     int id;
     String cliente;
@@ -22,7 +19,6 @@ public class Prova2025_2 {
     public static final int TAM_OP = 1000;
     static Scanner sc = new Scanner(System.in);
 
-    // Funcao considerada pronta pelo enunciado.
     public static int buscaId(Conta[] v, int tam, int x) {
         for (int i = 0; i < tam; i++) {
             if (v[i].id == x) {
@@ -32,7 +28,6 @@ public class Prova2025_2 {
         return -1;
     }
 
-    // Questao 1.
     public static int cadastrarConta(Conta[] v, int tam) {
         if (tam >= TAM_CONTAS || tam >= v.length) {
             System.out.println("Vetor de contas cheio.");
@@ -63,7 +58,6 @@ public class Prova2025_2 {
         return tam + 1;
     }
 
-    // Questao 2. O vetor deve estar ordenado pelo mesmo criterio da questao 3.
     public static int buscaBinariaCliente(Conta[] v, int tam, String x) {
         int inicio = 0;
         int fim = tam - 1;
@@ -84,7 +78,6 @@ public class Prova2025_2 {
         return -1;
     }
 
-    // Questao 3. Mantem o retorno int solicitado e devolve o tamanho do vetor.
     public static int insertionSortCliente(Conta[] v, int tam) {
         for (int i = 1; i < tam; i++) {
             Conta chave = v[i];
@@ -100,7 +93,6 @@ public class Prova2025_2 {
         return tam;
     }
 
-    // Questao 4. O destino deve ter capacidade para as operacoes filtradas.
     public static int filtraOperacoes(Operacao[] vOp, int tamOp,
                                      Operacao[] vOpFiltrado, int x) {
         int quantidade = 0;
@@ -113,9 +105,6 @@ public class Prova2025_2 {
         return quantidade;
     }
 
-    // Questao 5. Assume operacoes em ordem cronologica no vetor.
-    // Conforme o enunciado, o saldo do extrato parte de zero.
-    // O sinal de valor determina credito ou debito, inclusive nas transferencias.
     public static void extrato(Conta[] vContas, int tamConta,
                                Operacao[] vOp, int tamOp) {
         System.out.print("ID da conta: ");
@@ -176,9 +165,6 @@ public class Prova2025_2 {
         return String.format("%.2f%c", Math.abs(valor), indicador);
     }
 
-    // Demonstracao das funcoes com dados ficticios.
-    // Executar: java Prova2025_2
-    // Digite 1 no pedido de ID para visualizar o extrato.
     public static void main(String[] args) {
         Conta[] contas = new Conta[TAM_CONTAS];
         Conta conta = new Conta();
