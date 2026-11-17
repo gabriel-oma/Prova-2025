@@ -141,25 +141,22 @@ public class Prova2025_2 {
 
         for (int i = inicio; i < quantidade; i++) {
             Operacao op = filtradas[i];
+            String nome = "";
+
+            if (op.tipo == 'D') {
+                nome = "Deposito";
+            } else if (op.tipo == 'S') {
+                nome = "Saque";
+            } else if (op.tipo == 'T') {
+                nome = "Transferencia";
+            }
+
             saldo += op.valor;
             System.out.printf("%04d | %s | %s | %s%n",
-                              op.id, nomeOperacao(op.tipo),
+                              op.id, nome,
                               formataValor(op.valor), formataValor(saldo));
         }
         System.out.println("Saldo Atual: " + formataValor(saldo));
-    }
-
-    public static String nomeOperacao(char tipo) {
-        switch (tipo) {
-            case 'D':
-                return "Deposito";
-            case 'S':
-                return "Saque";
-            case 'T':
-                return "Transferencia";
-            default:
-                return "Desconhecida";
-        }
     }
 
     public static String formataValor(double valor) {
